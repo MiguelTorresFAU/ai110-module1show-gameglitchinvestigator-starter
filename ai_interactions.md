@@ -8,17 +8,7 @@
 
 > Document your experience using an AI agent (e.g., Cursor Agent, Claude, Copilot) to make multi-step changes autonomously.
 
-**What task did you give the agent?**
-
-<!-- Describe the goal you asked the agent to accomplish -->
-
-**What did the agent do?**
-
-<!-- List the steps the agent took (files edited, commands run, etc.) -->
-
-**What did you have to verify or fix manually?**
-
-<!-- Describe anything the agent got wrong or that required human review -->
+Not attempted as a separate feature-expansion stretch challenge.
 
 ---
 
@@ -28,9 +18,10 @@
 
 | Edge Case | Prompt Used | AI-Suggested Test | Did It Pass? | Your Reasoning |
 |-----------|-------------|-------------------|--------------|----------------|
-| | | | | |
-| | | | | |
-| | | | | |
+| Empty or whitespace input | "Draft a focused pytest for blank guessing-game input." | Assert that whitespace returns an unsuccessful parse with `Enter a guess.` | Yes | A blank form submission is common and should not consume an attempt or crash. |
+| Non-numeric text | "Add a behavior test for a word entered as a guess." | Parse `banana` and assert a whole-number validation error. | Yes | User input is text, so accidental words must be handled safely. |
+| Decimal text | "Test that the parser does not silently truncate a decimal guess." | Parse `12.8` and assert that it is rejected. | Yes | The starter converted floats to integers, which changed the player's input without warning. |
+| Negative integer | "Separate integer parsing from range validation with a negative-value test." | Confirm `-4` parses as an integer before the UI rejects it as out of range. | Yes | This keeps the pure parser focused while preserving range checks in the UI layer. |
 
 ---
 
@@ -38,21 +29,7 @@
 
 > Document your use of AI for linting or code style improvements.
 
-**Prompt used:**
-
-```
-<!-- Paste the prompt you gave the AI -->
-```
-
-**Linting output before:**
-
-```
-<!-- Paste relevant linter warnings/errors -->
-```
-
-**Changes applied:**
-
-<!-- Describe what you changed based on the AI's suggestions -->
+Not attempted as a separate linting stretch challenge.
 
 ---
 
@@ -60,17 +37,4 @@
 
 > Compare two AI models on the same task.
 
-**Task given to both models:**
-
-<!-- Describe what you asked each model to do -->
-
-| | Model A | Model B |
-|-|---------|---------|
-| **Model name** | | |
-| **Response summary** | | |
-| **More Pythonic?** | | |
-| **Clearer explanation?** | | |
-
-**Which did you prefer and why?**
-
-<!-- Your conclusion -->
+Not attempted.
